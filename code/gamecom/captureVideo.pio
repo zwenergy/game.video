@@ -1,0 +1,47 @@
+.program captureVideo
+
+.wrap_target
+waitDCLK:
+// Wait for high DCLK
+wait 1 gpio 4
+
+// Wait for falling edge.
+wait 0 gpio 4
+
+// Get current pixels. We assume autopush.
+in pins, 4
+
+// Go back to waiting
+.wrap
+
+% c-sdk {
+#include "hardware/gpio.h"
+
+static inline void captureVideo_program_init(PIO pio, uint sm, uint offset, uint d0Pin ) {
+
+  pio_sm_config c = captureVideo_program_get_default_config( offset );
+  // Set video pins.
+  pio_gpio_init(pio, 0);
+  pio_gpio_init(pio, 1);
+  pio_gpio_init(pio, 2);
+  pio_gpio_init(pio, 3);
+  pio_sm_set_consecutive_pindirs(pio, sm, d0Pin, 4, false);
+  
+  // Set DCLK to read.
+  pio_gpio_init(pio, 4);
+  pio_sm_set_consecutive_pindirs(pio, sm, 4, 1, false);
+  
+  // Set IN pins
+  sm_config_set_in_pins( &c, d0Pin );
+  sm_config_set_in_pin_count( &c, 4 );
+  
+  // Set autopush at 32 bit
+  sm_config_set_in_shift(&c, true, true, 32);
+  
+  sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_RX);
+  
+  pio_sm_init( pio, sm, offset, &c );
+  pio_sm_set_enabled( pio, sm, true );
+}
+
+%}

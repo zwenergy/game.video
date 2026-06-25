@@ -1,0 +1,44 @@
+.program frameStartNotifier
+
+// Pull number of wait pixels.
+pull block
+
+.wrap_target
+// Move it to x
+mov x, osr
+
+// Wait for low VSYNC.
+wait 0 gpio 5
+
+// Wait for rising edge.
+wait 1 gpio 5
+
+// Count falling DCLKs.
+waitState:
+wait 1 gpio 4
+wait 0 gpio 4
+jmp x-- waitState
+
+// Do a NOP with some waiting.
+nop [16]
+
+// Push a dummy.
+push
+
+// Start again.
+.wrap
+
+
+% c-sdk {
+static inline void frameStartNotifier_program_init(PIO pio, uint sm, uint offset ) {
+
+  pio_sm_config c = frameStartNotifier_program_get_default_config( offset );
+  // Set VSYNC to read.
+  pio_gpio_init(pio, 5);
+  pio_sm_set_consecutive_pindirs(pio, sm, 5, 1, false);
+    
+  pio_sm_init( pio, sm, offset, &c );
+  pio_sm_set_enabled( pio, sm, true );
+}
+
+%}

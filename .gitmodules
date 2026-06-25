@@ -1,0 +1,3 @@
+[submodule "code/pico_hdmi"]
+	path = code/pico_hdmi
+	url = https://github.com/fliperama86/pico_hdmi.git
