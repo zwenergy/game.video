@@ -21,7 +21,7 @@ add_compile_options( -Wall )
 add_compile_definitions(PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64)
 
 # Add pico_hdmi library
-add_subdirectory(../pico_hdmi)
+add_subdirectory( pico_hdmi)
 
 add_executable(${PROJECT}
     main.c

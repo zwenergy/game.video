@@ -62,7 +62,7 @@
 volatile int audioDMAChanDat;
 int audio_frame_counter = 0;
 
-uint16_t audioBuffer[ CAPTURE_SAMPLES ] __attribute__((section(".sramdma"))) __attribute__((aligned(2048)));;
+uint16_t audioBuffer[ AUDIO_SAMPLES ] __attribute__((section(".sramdma"))) __attribute__((aligned(2048)));;
 
 unsigned bufferReadCnt __attribute__((section(".sramdma"))) = 0;
 unsigned bufferWriteCnt __attribute__((section(".sramdma"))) = 0;
@@ -71,6 +71,7 @@ unsigned fullBuffer __attribute__((section(".sramdma"))) = 0;
 // Filter.
 float previous_sample = 0.0f;
 float alpha = 0.5f; // Lower = more muffled/smoother, Higher = more noise/clearer
+#define NOISE_GATE (4096/1000)
 
 static void __not_in_flash_func( pushAudioSamples )() {
   bufferWriteCnt =  ( ( dma_hw->ch[ audioDMAChanDat ].write_addr - ( (uint32_t) audioBuffer ) ) / 2 );
