@@ -44,6 +44,19 @@ _**BOM**_
 |---------------|----------|----------|
 | P1 | 10 pin IDC connector header|[LCSC](https://www.lcsc.com/product-detail/C5665.html)|
 
+## Installation
+Disassemble the Tiger game.com to the point where you can remove the motherboard from the shell and access the back of the motherboard.
+
+**WARNING & BEWARE:**
+The game.com is a marvellous piece of engineering, so there's a ton of different screws at all kinds of weird places.
+Make sure to remember which screw goes where.
+Besides, the touch screen connector flex cable is only partially glued down to the motheboard and somewhat given pressure by the display bracket.
+That glue has mostly disintegrated 30 years later, so be very careful when handling the display.
+
+**All that to say: Be careful when disassembling a game.com, you can easily break stuff or mix screws up or other bad things.
+This thing has a bad production quality in the first place.
+<ins>Everything is done at your own risk.</ins>**
+
 ## Disclaimer
 **Use the files and/or schematics to build your own board at your own risk**.
 This project works fine for me, but it's a simple hobby project, so there is no liability for errors in the schematics and/or board files.
