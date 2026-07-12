@@ -1,6 +1,8 @@
 # game.video
 A video out adapter for the Tiger game.com handheld.
 
+# This is a work in progress, expect things not being polished and not fully documented!
+
 ## General Overview
 This project taps in the digital video signals of the Tiger game.com handheld as well as the analog audio (unfortunately, no digital audio is available as the Sharp SM8521 microcontroller has an integrated DAC for audio) and breaks them out to a 10 pin IDC connector.
 This connector is placed in the upper cart slot of the handheld to make a complete no-cut mod (note that it only uses the space of the empty cart slot, no connections to the actual cart connector is done here).
@@ -46,6 +48,8 @@ _**BOM**_
 
 ## Installation
 Disassemble the Tiger game.com to the point where you can remove the motherboard from the shell and access the back of the motherboard.
+
+_**INSERT FURTHER INSTALL STEPS HERE**_
 
 **WARNING & BEWARE:**
 The game.com is a marvellous piece of engineering, so there's a ton of different screws at all kinds of weird places.
