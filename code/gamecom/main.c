@@ -22,8 +22,8 @@
 #include "frameStart.pio.h"
 #include "frameStartNotifier.pio.h"
 
-#define AUDIO_PIN 27
-#define ADC_CHANNEL 1
+#define AUDIO_PIN 26
+#define ADC_CHANNEL 0
 #define AUDIO_SAMPLES 1024
 
 #ifdef VIDEO_MODE_1280x720
@@ -38,8 +38,8 @@
 #define BOX_SIZE 32
 #define SCALE 2
 #endif
-#define BG_COLOR 0x0010  // Dark blue (RGB565)
-#define BOX_COLOR 0xFFE0 // Yellow (RGB565)
+//#define BG_COLOR 0x0010  // Dark blue (RGB565)
+#define BG_COLOR 0x0000
 
 // GAME.COM Defs.
 #define DAT0 0
