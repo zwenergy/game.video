@@ -47,10 +47,6 @@ _**BOM**_
 | P1 | 10 pin IDC connector header|[LCSC](https://www.lcsc.com/product-detail/C5665.html)|
 
 ## Installation
-Disassemble the Tiger game.com to the point where you can remove the motherboard from the shell and access the back of the motherboard.
-
-_**INSERT FURTHER INSTALL STEPS HERE**_
-
 **WARNING & BEWARE:**
 The game.com is a marvellous piece of engineering, so there's a ton of different screws at all kinds of weird places.
 Make sure to remember which screw goes where.
@@ -60,6 +56,34 @@ That glue has mostly disintegrated 30 years later, so be very careful when handl
 **All that to say: Be careful when disassembling a game.com, you can easily break stuff or mix screws up or other bad things.
 This thing has a bad production quality in the first place.
 <ins>Everything is done at your own risk.</ins>**
+
+**Also, this still is a work-in-progress! Any additional feedback or installation photos/guides are very welcome!**
+
+Prepare the flex cable + connector PCB combo.
+For this solder the IDC connector on the PCB and the flex cable on the back of it.
+The PCB shows the supposed orientation of the IDC connector (the notch is marked).
+Make sure to align the flex cable also in the correct orientation (check the the signal names + positions on the flex line up with the signal names + positions on the connector PCB).
+
+Disassemble the Tiger game.com to the point where you can remove the motherboard from the shell and access the back of the motherboard.
+Be careful when opening the shell, as the speaker is stuck to the front part of the shell and hard-wired.
+Also be careful when taking out the motherboard from the bottom shell, as the battery contacts are stuck to the bottom and shell and hard-wired to the motherboard.
+8 out of the 9 signals to be wired to the flex cable pads are connected to the display signal pin headers.
+Wire the signals from the following points to the corresponding pads on the flex cable (try to make the wires as short as possible, but keep in mind where there flex cable is situated so that you can still nicely route the wires when placing back the motherboard into the shell).
+
+<img src="./assets/solder_display.jpg" alt="display solder points" width="400"/>
+
+The audio pad on the flex cable has to be wired up to the same solder point of the headphone connector where the **blue** wire of the headphone connector is connected to (_**INSERT A PHOTO HERE**_).
+Make sure to keep all the existing flimsy connections for the headphone connector intact.
+
+Wrap the part of the flex cable with the solder pads from both sides with kapton or electrical kape to make sure no short-circuits can happen.
+Place the connector PCB into the 3D printed bracket.
+Now place the motherboard back into the bottom shell and align the video connector combo into the upper cart slot (**under** the right-hand controller sub-PCB).
+Carefully re-insert the "cart slot cover", making sure everything still fits and screw in place.
+During the step, the additional flex cable length can be carefully folded in the empty cart slot and/or placed under the controller sub-PCB's ribbon cable.
+
+<img src="./assets/controller_ribbon.jpg" alt="controller ribbon cable" height="200"/>
+
+_**INSERT FURTHER INSTALL STEPS HERE**_
 
 ## Disclaimer
 **Use the files and/or schematics to build your own board at your own risk**.
